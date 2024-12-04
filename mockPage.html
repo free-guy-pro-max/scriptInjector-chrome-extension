@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Page</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p id="content"></p>
+    <script>
+        (async function() {
+           const websiteContent = await fetch("https://www.att.com/");
+            console.log("------------------------vinu-------------------");
+            console.log(websiteContent);
+            document.querySelector("#content").innerText = JSON.stringify(websiteContent);
+        }
+        )()
+    </script>
+</body>
+</html>

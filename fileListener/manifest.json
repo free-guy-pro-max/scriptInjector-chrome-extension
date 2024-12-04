@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "HTML File Listener for Head Injection",
+  "version": "1.0",
+  "description": "Listens for changes in an HTML file and injects the content into the head of the current tab after a refresh.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.att.com/*",
+        "http://www.att.com/*",
+        "https://*/*",
+        "http://*/*",
+        "file:///*",
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://www.att.com/*",
+    "http://www.att.com/*",
+    "file:///*",
+    "https://*/*",
+    "http://*/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
